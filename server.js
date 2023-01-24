@@ -27,6 +27,7 @@ function startMenu() {
           "Add Role",
           "View All Departments",
           "Add Department",
+          "Exit",
         ],
       },
     ])
@@ -52,6 +53,9 @@ function startMenu() {
       if (answer.choice === "Add Department") {
         addDepartment();
       }
+      if (answer.choice === "Exit") {
+        console.log("Have a great day!");
+      }
     });
 }
 
@@ -66,6 +70,141 @@ function viewEmployees() {
     console.table(res);
     startMenu();
   });
+}
+
+function viewAllDepartments() {
+  const sql = `SELECT * FROM department`;
+  db.query(sql, (err, res) => {
+    if (err) throw err;
+    console.table(res);
+    startMenu();
+  });
+}
+
+function viewAllRoles() {
+  const sql = `SELECT * FROM role`;
+  db.query(sql, (err, res) => {
+    if (err) throw err;
+    console.table(res);
+    startMenu();
+  });
+}
+
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "first_name",
+        message: "Please enter the employee's first name",
+      },
+      {
+        type: "input",
+        name: "last_name",
+        message: "Please enter the employee's last name",
+      },
+      {
+        type: "input",
+        name: "role_id",
+        message: "Please enter the employee's role ID",
+      },
+      {
+        type: "input",
+        name: "manager_id",
+        message: "Please enter the employee's manager ID",
+      },
+    ])
+    .then((answer) => {
+      const sql =
+        "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)";
+      const params = [answer.first_name, answer.last_name, answer.role_id, answer.manager_id];
+
+      db.query(sql, params, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        startMenu();
+      });
+    });
+}
+function addRole() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "title",
+        message: "Please enter the new role",
+      },
+      {
+        type: "input",
+        name: "salary",
+        message: "Please enter the salary for this role",
+      },
+      {
+        type: "input",
+        name: "department_id",
+        message: "Please enter the department ID for this role",
+      },
+    ])
+    .then((answer) => {
+      const sql = "INSERT INTO role (title, salary, department_id) VALUES (?,?,?)";
+      const params = [answer.title, answer.salary, answer.department_id];
+
+      db.query(sql, params, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        startMenu();
+      });
+    });
+}
+function addDepartment() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Please enter the name of the new Department",
+      },
+    ])
+    .then((answer) => {
+      const sql = "INSERT INTO department (name) VALUES (?)";
+      const params = [answer.name];
+
+      db.query(sql, params, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        startMenu();
+      });
+    });
+}
+function updateEmployeeRole() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "id",
+        message: "Please enter the employee's ID that you would like to update",
+      },
+      {
+        type: "input",
+        name: "role_id",
+        message: "Please enter the role ID of the employee's updated role",
+      },
+      {
+        type: "input",
+        name: "manager_id",
+        message: "Please enter the manager ID for the employee's updated role",
+      },
+    ])
+    .then((answer) => {
+      const sql = "UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?";
+      const params = [answer.role_id, answer.manager_id, answer.id];
+
+      db.query(sql, params, (err, res) => {
+        if (err) throw err;
+        console.table(res);
+        startMenu();
+      });
+    });
 }
 
 startMenu();
