@@ -55,6 +55,7 @@ function startMenu() {
       }
       if (answer.choice === "Exit") {
         console.log("Have a great day!");
+        process.exit();
       }
     });
 }
