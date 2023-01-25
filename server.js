@@ -122,7 +122,7 @@ function addEmployee() {
 
       db.query(sql, params, (err, res) => {
         if (err) throw err;
-        console.table(res);
+        console.log("Employee added to the database.");
         startMenu();
       });
     });
@@ -152,7 +152,7 @@ function addRole() {
 
       db.query(sql, params, (err, res) => {
         if (err) throw err;
-        console.table(res);
+        console.log("Role added to the database.");
         startMenu();
       });
     });
@@ -172,7 +172,7 @@ function addDepartment() {
 
       db.query(sql, params, (err, res) => {
         if (err) throw err;
-        console.table(res);
+        console.log("Department added to the database.");
         startMenu();
       });
     });
@@ -202,7 +202,7 @@ function updateEmployeeRole() {
 
       db.query(sql, params, (err, res) => {
         if (err) throw err;
-        console.table(res);
+        console.log("Successfully updated employee.");
         startMenu();
       });
     });
