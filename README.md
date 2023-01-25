@@ -16,13 +16,13 @@ To use this CLI application you will login in to MySQL and first run the schema.
 
 [Link]https://drive.google.com/file/d/1b3Iu85SJmFOKDPihASioBl1hfInrS0Eh/view
 
-![Screenshot](assets/12-sql-homework-demo-01.png)
+![Screenshot](/Assets/assets/12-sql-homework-demo-01.png)
 
-![Screenshot](assets/Screenshot%202022-12-15%20at%209.18.11%20PM.png)
+![Screenshot](/Assets/assets/Screenshot%202022-12-15%20at%209.18.11%20PM.png)
 
-![Screenshot](assets/Screenshot%202023-01-25%20at%205.29.49%20PM.png)
+![Screenshot](/Assets/assets/Screenshot%202023-01-25%20at%205.29.49%20PM.png)
 
-![Screenshot](assets/Screenshot%202023-01-25%20at%205.30.22%20PM.png)
+![Screenshot](/Assets/assets/Screenshot%202023-01-25%20at%205.30.22%20PM.png)
 
 ## Credit
 
