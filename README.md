@@ -18,8 +18,6 @@ To use this CLI application you will login in to MySQL and first run the schema.
 
 ![Screenshot](/Assets/12-sql-homework-demo-01.png)
 
-![Screenshot](/Assets/Screenshot%202022-12-15%20at%209.18.11%20PM.png)
-
 ![Screenshot](/Assets/Screenshot%202023-01-25%20at%205.29.49%20PM.png)
 
 ![Screenshot](/Assets/Screenshot%202023-01-25%20at%205.30.22%20PM.png)
